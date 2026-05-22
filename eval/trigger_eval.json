@@ -1,0 +1,22 @@
+[
+  {"query": "post this photo to my instagram, the file is at /Users/augusto/Desktop/product_shot.jpg — add the caption 'New collection drop #fashion'", "should_trigger": true},
+  {"query": "quero publicar no instagram essa foto que tirei hoje, tá em /tmp/foto.jpg, coloca a legenda 'dia incrível'", "should_trigger": true},
+  {"query": "can you post a reel on my instagram? i have the video file here: /Users/augusto/videos/clip.mp4 — caption should be 'weekend vibes'", "should_trigger": true},
+  {"query": "create a carousel on instagram with these 3 images: https://cdn.mystore.com/1.jpg https://cdn.mystore.com/2.jpg https://cdn.mystore.com/3.jpg — caption: Summer collection #style", "should_trigger": true},
+  {"query": "agendar post no instagram pra amanha 10h da manha, foto do produto novo em /home/augusto/fotos/produto.png, legenda: Novidade chegando!", "should_trigger": true},
+  {"query": "share this on my ig — selfie.jpg is attached — just caption it with today's date", "should_trigger": true},
+  {"query": "publish on my insta with caption 'Weekend vibes #travel #summer' — url is https://images.unsplash.com/photo-123456.jpg", "should_trigger": true},
+  {"query": "post this reel to instagram, schedule it for 2026-06-01T18:00:00, video is here: /tmp/promo_video.mp4", "should_trigger": true},
+  {"query": "my marketing team needs to post 5 images as a carousel on instagram for our product launch. files are at /tmp/campaign/img1.jpg img2.jpg img3.jpg img4.jpg img5.jpg", "should_trigger": true},
+  {"query": "Postar esse video no ig sem permitir comentarios, o arquivo e /var/www/uploads/video.mp4", "should_trigger": true},
+  {"query": "can you help me write a really engaging instagram caption for this product photo? i want something that drives engagement and includes good hashtags for a fitness brand", "should_trigger": false},
+  {"query": "i need to post on social media today — here is my content. can you figure out the best format and platform?", "should_trigger": false},
+  {"query": "help me resize this image to instagram square format (1080x1080 px) — file is at /Downloads/photo.png", "should_trigger": false},
+  {"query": "write a python script that posts to the instagram graph api automatically every day using a cron job, i want to build this myself", "should_trigger": false},
+  {"query": "how do i get more followers on instagram organically? my account is at around 800 followers and i am struggling with reach", "should_trigger": false},
+  {"query": "can you download all my instagram posts and save them to a folder? i want to back up my entire content history", "should_trigger": false},
+  {"query": "create a content calendar with 30 days of instagram post ideas for a fitness brand targeting women 25-35", "should_trigger": false},
+  {"query": "check if my instagram post from yesterday got more than 100 likes and tell me the engagement rate", "should_trigger": false},
+  {"query": "post this product announcement to our company linkedin page, twitter, and facebook — here is the image and the text i want to use", "should_trigger": false},
+  {"query": "generate a list of the top trending hashtags i should use on my instagram fitness posts this week to maximize reach", "should_trigger": false}
+]
