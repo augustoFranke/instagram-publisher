@@ -44,11 +44,18 @@ The skill is designed for action requests such as "post this photo to Instagram"
 
 ## Initial Setup
 
-Install the skill in your Claude skills directory:
+Install the skill in Claude Code:
 
 ```bash
 mkdir -p ~/.claude/skills
 cp -R instagram-publisher ~/.claude/skills/instagram-publisher
+```
+
+Install the skill in Codex:
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R instagram-publisher ~/.codex/skills/instagram-publisher
 ```
 
 Create the environment file:
@@ -57,6 +64,8 @@ Create the environment file:
 cp ~/.claude/skills/instagram-publisher/.env.example \
   ~/.claude/skills/instagram-publisher/.env
 ```
+
+For Codex, create the same file under `~/.codex/skills/instagram-publisher/.env`.
 
 Edit `.env` and provide:
 
