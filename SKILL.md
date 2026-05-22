@@ -5,13 +5,22 @@ description: "Publish photos, videos, and carousels to Instagram via the Graph A
 
 # Instagram Publisher
 
-Publishes photos, reels, and carousels via the Instagram Graph API. Script: `~/.claude/skills/instagram-publisher/publish.py`.
+Publishes photos, reels, and carousels via the Instagram Graph API.
+
+Script path:
+- Claude Code install: `~/.claude/skills/instagram-publisher/publish.py`
+- Codex install: `~/.codex/skills/instagram-publisher/publish.py`
+
+Use the script path for the host you are running inside.
 
 If this is the first time the user is running the skill, read `setup.md` in the same directory and walk them through it before proceeding.
 
 ## Credential check
 
-Confirm `~/.claude/skills/instagram-publisher/.env` has both values set:
+Confirm the installed skill `.env` has both values set:
+
+- Claude Code: `~/.claude/skills/instagram-publisher/.env`
+- Codex: `~/.codex/skills/instagram-publisher/.env`
 
 ```
 IG_USER_ID=<instagram business user id>
