@@ -4,6 +4,20 @@
 
 The skill is designed for action requests such as "post this photo to Instagram", "schedule this reel", or "posta essa foto no ig". It intentionally skips adjacent tasks such as caption-only writing, hashtag research, analytics, content planning, and posting to other platforms.
 
+## Skill Links
+
+- GitHub: [augustoFranke/instagram-publisher](https://github.com/augustoFranke/instagram-publisher)
+- Codex plugin: [View instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json)
+- Codex share link: [Share instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json&mode=share)
+- Claude plugin: `instagram-publisher@instagram-publisher`
+- Claude marketplace path: `/Users/augustodoregofranke/.claude/plugins/marketplaces/instagram-publisher`
+
+Install from the local Claude marketplace:
+
+```bash
+claude plugin install instagram-publisher@instagram-publisher
+```
+
 ## What The Skill Does
 
 - Publishes single-image posts with optional captions, alt text, user tags, scheduling, and disabled comments.
