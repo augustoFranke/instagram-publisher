@@ -1,0 +1,10 @@
+{
+  "name": "instagram-publisher",
+  "version": "1.0.0",
+  "description": "Publish Instagram photos, reels, and carousels through the Instagram Graph API.",
+  "author": {
+    "name": "Augusto Franke",
+    "url": "https://github.com/augustoFranke"
+  },
+  "homepage": "https://github.com/augustoFranke/instagram-publisher"
+}

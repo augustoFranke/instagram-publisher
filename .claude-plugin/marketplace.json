@@ -1,0 +1,21 @@
+{
+  "name": "instagram-publisher",
+  "description": "Public marketplace for the Instagram Publisher skill.",
+  "owner": {
+    "name": "Augusto Franke",
+    "url": "https://github.com/augustoFranke"
+  },
+  "plugins": [
+    {
+      "name": "instagram-publisher",
+      "description": "Publish Instagram photos, reels, and carousels through the Instagram Graph API.",
+      "author": {
+        "name": "Augusto Franke",
+        "url": "https://github.com/augustoFranke"
+      },
+      "category": "productivity",
+      "source": "./plugins/instagram-publisher",
+      "homepage": "https://github.com/augustoFranke/instagram-publisher"
+    }
+  ]
+}

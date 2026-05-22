@@ -7,16 +7,20 @@ The skill is designed for action requests such as "post this photo to Instagram"
 ## Skill Links
 
 - GitHub: [augustoFranke/instagram-publisher](https://github.com/augustoFranke/instagram-publisher)
-- Codex plugin: [View instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json)
-- Codex share link: [Share instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json&mode=share)
-- Claude plugin: `instagram-publisher@instagram-publisher`
-- Claude marketplace path: `/Users/augustodoregofranke/.claude/plugins/marketplaces/instagram-publisher`
+- Claude marketplace manifest: [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json)
+- Codex marketplace manifest: [.agents/plugins/marketplace.json](.agents/plugins/marketplace.json)
+- Plugin core payload: [plugins/instagram-publisher](plugins/instagram-publisher)
+- Codex local preview: [View instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json)
+- Codex local share: [Share instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json&mode=share)
 
-Install from the local Claude marketplace:
+Install from the public Claude marketplace:
 
 ```bash
+claude plugin marketplace add https://github.com/augustoFranke/instagram-publisher
 claude plugin install instagram-publisher@instagram-publisher
 ```
+
+The Codex marketplace metadata is committed in `.agents/plugins/marketplace.json`, and the plugin manifest is committed in `plugins/instagram-publisher/.codex-plugin/plugin.json`.
 
 ## What The Skill Does
 
@@ -35,6 +39,17 @@ claude plugin install instagram-publisher@instagram-publisher
 ├── publish.py
 ├── setup.md
 ├── .env.example
+├── .claude-plugin/
+│   └── marketplace.json
+├── .agents/
+│   └── plugins/
+│       └── marketplace.json
+├── plugins/
+│   └── instagram-publisher/
+│       ├── .claude-plugin/
+│       ├── .codex-plugin/
+│       └── skills/
+│           └── instagram-publisher/
 ├── RETROSPECTIVA.md
 └── eval/
     ├── eval_execution_results.json
