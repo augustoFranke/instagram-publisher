@@ -1,0 +1,6 @@
+.DS_Store
+.env
+.claude/
+eval/.git/
+__pycache__/
+*.pyc
