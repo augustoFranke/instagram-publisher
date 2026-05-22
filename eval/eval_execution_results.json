@@ -1,0 +1,293 @@
+{
+  "eval_name": "instagram-publisher-execution",
+  "date": "2026-05-22",
+  "results": [
+    {
+      "id": 1,
+      "name": "photo-from-url-with-caption",
+      "request": "post this photo to my instagram — url is https://example.com/product.jpg, caption: 'New drop! #fashion'",
+      "assertions": [
+        {
+          "id": "uses-photo-subcommand",
+          "passed": true,
+          "evidence": "command contains 'photo'"
+        },
+        {
+          "id": "uses-correct-url",
+          "passed": true,
+          "evidence": "command contains 'https://example.com/product.jpg'"
+        },
+        {
+          "id": "has-caption-flag",
+          "passed": true,
+          "evidence": "command contains '--caption'"
+        },
+        {
+          "id": "no-file-flag",
+          "passed": true,
+          "evidence": "command does NOT contain '--file'"
+        }
+      ],
+      "passed": true,
+      "generated_command": "python3 ~/.claude/skills/instagram-publisher/publish.py photo https://example.com/product.jpg --caption 'New drop! #fashion'"
+    },
+    {
+      "id": 2,
+      "name": "photo-from-local-file",
+      "request": "posta essa foto no instagram, o arquivo está em /Users/augusto/Desktop/foto.jpg, legenda: 'Bom dia!'",
+      "assertions": [
+        {
+          "id": "uses-photo-subcommand",
+          "passed": true,
+          "evidence": "command contains 'photo'"
+        },
+        {
+          "id": "uses-file-flag",
+          "passed": true,
+          "evidence": "command contains '--file /Users/augusto/Desktop/foto.jpg'"
+        },
+        {
+          "id": "has-caption-flag",
+          "passed": true,
+          "evidence": "command contains '--caption'"
+        },
+        {
+          "id": "no-raw-url-as-positional",
+          "passed": true,
+          "evidence": "command does NOT contain 'http' as positional arg"
+        }
+      ],
+      "passed": true,
+      "generated_command": "python3 ~/.claude/skills/instagram-publisher/publish.py photo --file /Users/augusto/Desktop/foto.jpg --caption 'Bom dia!'"
+    },
+    {
+      "id": 3,
+      "name": "reel-with-cover-url",
+      "request": "post this reel to instagram: https://example.com/video.mp4 — use https://example.com/thumb.jpg as thumbnail, caption: 'Behind the scenes'",
+      "assertions": [
+        {
+          "id": "uses-reel-subcommand",
+          "passed": true,
+          "evidence": "command contains 'reel'"
+        },
+        {
+          "id": "uses-video-url",
+          "passed": true,
+          "evidence": "command contains 'https://example.com/video.mp4'"
+        },
+        {
+          "id": "has-cover-url",
+          "passed": true,
+          "evidence": "command contains '--cover-url'"
+        },
+        {
+          "id": "has-caption",
+          "passed": true,
+          "evidence": "command contains '--caption'"
+        }
+      ],
+      "passed": true,
+      "generated_command": "python3 ~/.claude/skills/instagram-publisher/publish.py reel https://example.com/video.mp4 --cover-url https://example.com/thumb.jpg --caption 'Behind the scenes'"
+    },
+    {
+      "id": 4,
+      "name": "scheduled-photo",
+      "request": "schedule this instagram post for 2026-06-15T10:00:00 — photo at https://example.com/promo.jpg, caption: 'Sale starts now!'",
+      "assertions": [
+        {
+          "id": "uses-photo-subcommand",
+          "passed": true,
+          "evidence": "command contains 'photo'"
+        },
+        {
+          "id": "has-schedule-flag",
+          "passed": true,
+          "evidence": "command contains '--schedule'"
+        },
+        {
+          "id": "schedule-has-datetime",
+          "passed": true,
+          "evidence": "command contains '2026-06-15T10:00:00'"
+        },
+        {
+          "id": "has-caption",
+          "passed": true,
+          "evidence": "command contains '--caption'"
+        }
+      ],
+      "passed": true,
+      "generated_command": "python3 ~/.claude/skills/instagram-publisher/publish.py photo https://example.com/promo.jpg --caption 'Sale starts now!' --schedule 2026-06-15T10:00:00Z"
+    },
+    {
+      "id": 5,
+      "name": "carousel-from-urls",
+      "request": "create a carousel on instagram with these images: https://example.com/1.jpg https://example.com/2.jpg https://example.com/3.jpg — caption: 'Swipe to see more!'",
+      "assertions": [
+        {
+          "id": "uses-carousel-subcommand",
+          "passed": true,
+          "evidence": "command contains 'carousel'"
+        },
+        {
+          "id": "has-all-three-urls",
+          "passed": true,
+          "evidence": "command contains 'https://example.com/1.jpg' AND 'https://example.com/2.jpg' AND 'https://example.com/3.jpg'"
+        },
+        {
+          "id": "has-caption",
+          "passed": true,
+          "evidence": "command contains '--caption'"
+        },
+        {
+          "id": "no-file-flag",
+          "passed": true,
+          "evidence": "command does NOT contain '--files'"
+        }
+      ],
+      "passed": true,
+      "generated_command": "python3 ~/.claude/skills/instagram-publisher/publish.py carousel https://example.com/1.jpg https://example.com/2.jpg https://example.com/3.jpg --caption 'Swipe to see more!'"
+    },
+    {
+      "id": 6,
+      "name": "photo-with-user-tags-and-alt-text",
+      "request": "post https://example.com/team.jpg to instagram, tag @alice at position center-left and @bob at center-right, add alt text 'Two people smiling', disable comments",
+      "assertions": [
+        {
+          "id": "uses-photo-subcommand",
+          "passed": true,
+          "evidence": "command contains 'photo'"
+        },
+        {
+          "id": "has-user-tags",
+          "passed": true,
+          "evidence": "command contains '--user-tags'"
+        },
+        {
+          "id": "user-tags-has-alice",
+          "passed": true,
+          "evidence": "command contains 'alice'"
+        },
+        {
+          "id": "user-tags-has-bob",
+          "passed": true,
+          "evidence": "command contains 'bob'"
+        },
+        {
+          "id": "has-alt-text",
+          "passed": true,
+          "evidence": "command contains '--alt-text'"
+        },
+        {
+          "id": "has-disable-comments",
+          "passed": true,
+          "evidence": "command contains '--disable-comments'"
+        }
+      ],
+      "passed": true,
+      "generated_command": "python3 ~/.claude/skills/instagram-publisher/publish.py photo https://example.com/team.jpg --user-tags '[{\"username\":\"alice\",\"x\":0.25,\"y\":0.5},{\"username\":\"bob\",\"x\":0.75,\"y\":0.5}]' --alt-text 'Two people smiling' --disable-comments"
+    },
+    {
+      "id": 7,
+      "name": "carousel-from-local-files",
+      "request": "cria um carrossel no instagram com esses arquivos locais: /tmp/img1.jpg /tmp/img2.jpg /tmp/img3.jpg — legenda: 'Novidades'",
+      "assertions": [
+        {
+          "id": "uses-carousel-subcommand",
+          "passed": true,
+          "evidence": "command contains 'carousel'"
+        },
+        {
+          "id": "uses-files-flag",
+          "passed": true,
+          "evidence": "command contains '--files'"
+        },
+        {
+          "id": "has-all-files",
+          "passed": true,
+          "evidence": "command contains '/tmp/img1.jpg' AND '/tmp/img2.jpg' AND '/tmp/img3.jpg'"
+        },
+        {
+          "id": "has-caption",
+          "passed": true,
+          "evidence": "command contains '--caption'"
+        }
+      ],
+      "passed": true,
+      "generated_command": "python3 ~/.claude/skills/instagram-publisher/publish.py carousel --files /tmp/img1.jpg /tmp/img2.jpg /tmp/img3.jpg --caption 'Novidades'"
+    },
+    {
+      "id": 8,
+      "name": "reel-local-file-no-comments",
+      "request": "Postar esse video no ig sem permitir comentarios, arquivo: /var/www/uploads/video.mp4",
+      "assertions": [
+        {
+          "id": "uses-reel-subcommand",
+          "passed": true,
+          "evidence": "command contains 'reel'"
+        },
+        {
+          "id": "uses-file-flag",
+          "passed": true,
+          "evidence": "command contains '--file /var/www/uploads/video.mp4'"
+        },
+        {
+          "id": "has-disable-comments",
+          "passed": true,
+          "evidence": "command contains '--disable-comments'"
+        }
+      ],
+      "passed": true,
+      "generated_command": "python3 ~/.claude/skills/instagram-publisher/publish.py reel --file /var/www/uploads/video.mp4 --disable-comments"
+    },
+    {
+      "id": 9,
+      "name": "error-expired-token",
+      "request": "The publish script returned: 'Erro API (400): {\"error\": {\"code\": 190, \"message\": \"Error validating access token\"}}'",
+      "assertions": [
+        {
+          "id": "mentions-token-expiry",
+          "passed": true,
+          "evidence": "response mentions token expired or 60 days"
+        },
+        {
+          "id": "mentions-meta-console",
+          "passed": true,
+          "evidence": "response mentions Meta Developer Console or refreshing the token"
+        },
+        {
+          "id": "does-not-retry-blindly",
+          "passed": true,
+          "evidence": "response does NOT suggest just running the command again"
+        }
+      ],
+      "passed": true,
+      "generated_response": "That error means the Instagram Graph API access token is expired or invalid. Long-lived tokens commonly need refreshing before the 60 days expire. Refresh or replace the token in the Meta Developer Console, then run publish.py with the new token."
+    },
+    {
+      "id": 10,
+      "name": "no-caption-provided",
+      "request": "post this to instagram: https://example.com/sunset.jpg",
+      "assertions": [
+        {
+          "id": "offers-caption",
+          "passed": true,
+          "evidence": "response offers to write a caption OR asks if user wants one"
+        },
+        {
+          "id": "does-not-post-without-asking",
+          "passed": true,
+          "evidence": "response does NOT immediately run the command without addressing caption"
+        }
+      ],
+      "passed": true,
+      "generated_response": "I can post the photo at https://example.com/sunset.jpg. Do you want me to write a caption first, or should I use a blank caption?"
+    }
+  ],
+  "summary": {
+    "total_cases": 10,
+    "passed_cases": 10,
+    "total_assertions": 38,
+    "passed_assertions": 38,
+    "pass_rate": "100%"
+  }
+}
