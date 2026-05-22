@@ -20,7 +20,15 @@ claude plugin marketplace add https://github.com/augustoFranke/instagram-publish
 claude plugin install instagram-publisher@instagram-publisher
 ```
 
-The Codex marketplace metadata is committed in `.agents/plugins/marketplace.json`, and the plugin manifest is committed in `plugins/instagram-publisher/.codex-plugin/plugin.json`.
+Install from the public Codex marketplace (clone the repo, then point Codex at the committed marketplace manifest):
+
+```bash
+git clone https://github.com/augustoFranke/instagram-publisher.git ~/instagram-publisher
+codex plugin marketplace add ~/instagram-publisher/.agents/plugins/marketplace.json
+codex plugin install instagram-publisher
+```
+
+You can also open the local preview/share links above (the `codex://` URLs) to register the marketplace directly from Codex.
 
 ## What The Skill Does
 
@@ -73,21 +81,20 @@ The Codex marketplace metadata is committed in `.agents/plugins/marketplace.json
 
 ## Initial Setup
 
-Install the skill in Claude Code:
+After installing through the marketplace commands above, the plugin payload lives under the host's plugin directory. The skill files (`publish.py`, `SKILL.md`, `setup.md`, `.env.example`) are inside `plugins/instagram-publisher/skills/instagram-publisher/` within that payload.
+
+If you prefer a manual install without the marketplace, clone the repo and copy the inner skill directory:
 
 ```bash
+git clone https://github.com/augustoFranke/instagram-publisher.git
 mkdir -p ~/.claude/skills
-cp -R instagram-publisher ~/.claude/skills/instagram-publisher
+cp -R instagram-publisher/plugins/instagram-publisher/skills/instagram-publisher \
+  ~/.claude/skills/instagram-publisher
 ```
 
-Install the skill in Codex:
+For Codex, use `~/.codex/skills/instagram-publisher` as the destination instead.
 
-```bash
-mkdir -p ~/.codex/skills
-cp -R instagram-publisher ~/.codex/skills/instagram-publisher
-```
-
-Create the environment file:
+Create the environment file alongside the skill:
 
 ```bash
 cp ~/.claude/skills/instagram-publisher/.env.example \
