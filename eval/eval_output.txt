@@ -1,5 +1,0 @@
-Done. I created and ran [run_execution_eval.py](/Users/augustodoregofranke/Developer/instagram-publisher-workspace/run_execution_eval.py), which wrote [eval_execution_results.json](/Users/augustodoregofranke/Developer/instagram-publisher-workspace/eval_execution_results.json).
-
-Result: `10/10` cases passed, `38/38` assertions passed, `100%` pass rate.
-
-I also validated the JSON with `python3 -m json.tool`.

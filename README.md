@@ -134,36 +134,3 @@ For carousels, the script creates child media containers first, then creates and
 
 Scheduling is implemented through `published=false` and `scheduled_publish_time` at publish time. The script enforces Instagram's scheduling window: at least 10 minutes in the future and at most 75 days ahead.
 
-## Eval Results
-
-The execution eval checks whether the skill produces the correct command or recovery response for representative user requests in English and Portuguese.
-
-Latest execution eval:
-
-- Date: 2026-05-22
-- Cases: 10/10 passed
-- Assertions: 38/38 passed
-- Pass rate: 100%
-
-Covered scenarios:
-
-- Photo from URL with caption
-- Photo from local file
-- Reel with cover URL
-- Scheduled photo
-- Carousel from URLs
-- Photo with user tags, alt text, and disabled comments
-- Carousel from local files
-- Reel from local file with disabled comments
-- Expired token diagnosis
-- No-caption behavior
-
-Run the eval:
-
-```bash
-python3 eval/run_execution_eval.py
-```
-
-The script writes `eval/eval_execution_results.json` and prints a summary table.
-
-Triggering eval artifacts are also kept in `eval/`. The retrospective notes that headless triggering evals were not a reliable primary metric for this action-oriented skill, but they were still useful for checking false positives and refining the frontmatter description.
