@@ -7,34 +7,12 @@ The skill is designed for action requests such as "post this photo to Instagram"
 ## Skill Links
 
 - GitHub: [augustoFranke/instagram-publisher](https://github.com/augustoFranke/instagram-publisher)
-- Claude marketplace manifest: [.claude-plugin/marketplace.json](.claude-plugin/marketplace.json)
-- Codex marketplace manifest: [.agents/plugins/marketplace.json](.agents/plugins/marketplace.json)
-- Plugin core payload: [plugins/instagram-publisher](plugins/instagram-publisher)
-- Codex local preview: [View instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json)
-- Codex local share: [Share instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json&mode=share)
 
 Install via `npx skills` (Easiest, works for Claude Code, Cursor, and 50+ other agents):
 
 ```bash
 npx skills add augustoFranke/instagram-publisher
 ```
-
-Or install from the public Claude marketplace:
-
-```bash
-claude plugin marketplace add https://github.com/augustoFranke/instagram-publisher
-claude plugin install instagram-publisher@instagram-publisher
-```
-
-Or install from the public Codex marketplace (clone the repo, then point Codex at the committed marketplace manifest):
-
-```bash
-git clone https://github.com/augustoFranke/instagram-publisher.git ~/instagram-publisher
-codex plugin marketplace add ~/instagram-publisher/.agents/plugins/marketplace.json
-codex plugin install instagram-publisher
-```
-
-You can also open the local preview/share links above (the `codex://` URLs) to register the marketplace directly from Codex.
 
 ## What The Skill Does
 
@@ -53,17 +31,6 @@ You can also open the local preview/share links above (the `codex://` URLs) to r
 ├── publish.py
 ├── setup.md
 ├── .env.example
-├── .claude-plugin/
-│   └── marketplace.json
-├── .agents/
-│   └── plugins/
-│       └── marketplace.json
-├── plugins/
-│   └── instagram-publisher/
-│       ├── .claude-plugin/
-│       ├── .codex-plugin/
-│       └── skills/
-│           └── instagram-publisher/
 ├── RETROSPECTIVA.md
 └── eval/
     ├── eval_execution_results.json
@@ -87,18 +54,13 @@ You can also open the local preview/share links above (the `codex://` URLs) to r
 
 ## Initial Setup
 
-After installing through the marketplace commands above, the plugin payload lives under the host's plugin directory. The skill files (`publish.py`, `SKILL.md`, `setup.md`, `.env.example`) are inside `plugins/instagram-publisher/skills/instagram-publisher/` within that payload.
-
-If you prefer a manual install without the marketplace, clone the repo and copy the inner skill directory:
+If you prefer a manual install instead of using `npx skills`, clone the repo and copy the files to your agent's skill directory:
 
 ```bash
 git clone https://github.com/augustoFranke/instagram-publisher.git
-mkdir -p ~/.claude/skills
-cp -R instagram-publisher/plugins/instagram-publisher/skills/instagram-publisher \
-  ~/.claude/skills/instagram-publisher
+mkdir -p ~/.claude/skills/instagram-publisher
+cp instagram-publisher/publish.py instagram-publisher/SKILL.md instagram-publisher/setup.md instagram-publisher/.env.example ~/.claude/skills/instagram-publisher/
 ```
-
-For Codex, use `~/.codex/skills/instagram-publisher` as the destination instead.
 
 Create the environment file alongside the skill:
 
@@ -106,8 +68,6 @@ Create the environment file alongside the skill:
 cp ~/.claude/skills/instagram-publisher/.env.example \
   ~/.claude/skills/instagram-publisher/.env
 ```
-
-For Codex, create the same file under `~/.codex/skills/instagram-publisher/.env`.
 
 Edit `.env` and provide:
 

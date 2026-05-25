@@ -59,7 +59,6 @@ Create the `.env` file in the installed skill directory:
 
 - npx skills (global store): `~/.agents/skills/instagram-publisher/.env`
 - Claude Code: `~/.claude/skills/instagram-publisher/.env`
-- Codex: `~/.codex/skills/instagram-publisher/.env`
 
 ```
 IG_USER_ID=<your numeric Instagram Business user ID>
@@ -111,8 +110,6 @@ python3 ~/.claude/skills/instagram-publisher/publish.py photo \
   "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/280px-PNG_transparency_demonstration_1.png" \
   --caption "Test post from Claude 🤖"
 ```
-
-If you installed the skill for Codex instead, use `~/.codex/skills/instagram-publisher/publish.py`.
 
 If you see a permalink printed at the end, you're all set.
 

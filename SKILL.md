@@ -10,7 +10,6 @@ Publishes photos, reels, and carousels via the Instagram Graph API.
 Script path:
 - Claude Code / general symlink: `~/.claude/skills/instagram-publisher/publish.py`
 - npx skills (global store): `~/.agents/skills/instagram-publisher/publish.py`
-- Codex install: `~/.codex/skills/instagram-publisher/publish.py`
 
 Use the script path for the host you are running inside. If installed via `npx skills` in other agents, search for the script in the global store path.
 
@@ -22,7 +21,6 @@ Confirm the installed skill `.env` has both values set:
 
 - npx skills (global store): `~/.agents/skills/instagram-publisher/.env`
 - Claude Code: `~/.claude/skills/instagram-publisher/.env`
-- Codex: `~/.codex/skills/instagram-publisher/.env`
 
 ```
 IG_USER_ID=<instagram business user id>
