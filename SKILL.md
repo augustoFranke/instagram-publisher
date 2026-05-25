@@ -13,21 +13,44 @@ Script path:
 
 Use the script path for the host you are running inside. If installed via `npx skills` in other agents, search for the script in the global store path.
 
-If this is the first time the user is running the skill, read `setup.md` in the same directory and walk them through it before proceeding.
+## First-run setup check (always run this before anything else)
 
-## Credential check
+Before doing anything the user asked, run these checks in order and resolve any issues interactively:
 
-Confirm the installed skill `.env` has both values set:
+### 1. Credentials
 
-- npx skills (global store): `~/.agents/skills/instagram-publisher/.env`
+Check the `.env` for the active install path:
+
 - Claude Code: `~/.claude/skills/instagram-publisher/.env`
+- npx skills (global store): `~/.agents/skills/instagram-publisher/.env`
 
-```
-IG_USER_ID=<instagram business user id>
-ACCESS_TOKEN=<long-lived access token>
+```bash
+cat ~/.claude/skills/instagram-publisher/.env 2>/dev/null
 ```
 
-If missing or incomplete → refer the user to `setup.md`.
+- If the file is **missing** or either `IG_USER_ID` / `ACCESS_TOKEN` is empty or still contains a placeholder (`<...>`):
+  - Tell the user setup is needed.
+  - Read `setup.md` and walk them through Steps 1–4 interactively, one step at a time.
+  - After they provide both values, write them to `.env` and confirm.
+
+### 2. Tailscale Funnel (only needed for local files — skip if posting from URLs only)
+
+Check Tailscale status:
+
+```bash
+tailscale version 2>/dev/null && tailscale funnel status 2>/dev/null
+```
+
+- If `tailscale` is **not installed**: tell the user and walk them through setup.md Step 5.
+- If Tailscale is installed but **not logged in** (`tailscale status` shows "not logged in"): instruct the user to run `! tailscale up`.
+- If Funnel is **not enabled** (status shows an error or no funnel entries): walk them through the ACL policy change in setup.md Step 5.
+- Only proceed once `tailscale funnel status` exits cleanly.
+
+> If the user explicitly says they'll only post from URLs (not local files), skip the Tailscale check.
+
+### 3. Ready confirmation
+
+Once both checks pass, confirm: "You're all set — credentials and Tailscale are configured." Then proceed with what the user originally asked.
 
 ## Choosing the content type
 
