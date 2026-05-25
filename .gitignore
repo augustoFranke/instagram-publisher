@@ -1,6 +1,0 @@
-.DS_Store
-.env
-.claude/
-eval/
-__pycache__/
-*.pyc

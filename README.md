@@ -30,16 +30,7 @@ npx skills add augustoFranke/instagram-publisher
 ├── SKILL.md
 ├── publish.py
 ├── setup.md
-├── .env.example
-├── RETROSPECTIVA.md
-└── eval/
-    ├── eval_execution_results.json
-    ├── eval_output.txt
-    ├── eval_prompt.md
-    ├── run_execution_eval.py
-    ├── trigger_eval.json
-    ├── eval.log
-    └── run_loop.log
+└── .env.example
 ```
 
 `SKILL.md` is the assistant-facing instruction file. Its frontmatter controls when the skill should trigger, and the body documents how to choose commands, flags, captions, local files, and error handling.
@@ -47,10 +38,6 @@ npx skills add augustoFranke/instagram-publisher
 `publish.py` is the Python 3 command-line publisher. It uses only the standard library plus the local Tailscale CLI, and calls the Instagram Graph API directly.
 
 `setup.md` is the user-facing setup guide for creating a Meta app, finding `IG_USER_ID`, generating a long-lived access token, creating `.env`, and enabling Tailscale Funnel for local files.
-
-`RETROSPECTIVA.md` records the technical decisions, iterations, removed features, API findings, test notes, and eval history.
-
-`eval/` contains execution and triggering evaluation artifacts. The primary machine-readable result is `eval/eval_execution_results.json`.
 
 ## Initial Setup
 
