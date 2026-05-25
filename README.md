@@ -13,14 +13,20 @@ The skill is designed for action requests such as "post this photo to Instagram"
 - Codex local preview: [View instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json)
 - Codex local share: [Share instagram-publisher](codex://plugins/instagram-publisher?marketplacePath=%2FUsers%2Faugustodoregofranke%2F.agents%2Fplugins%2Fmarketplace.json&mode=share)
 
-Install from the public Claude marketplace:
+Install via `npx skills` (Easiest, works for Claude Code, Cursor, and 50+ other agents):
+
+```bash
+npx skills add augustoFranke/instagram-publisher
+```
+
+Or install from the public Claude marketplace:
 
 ```bash
 claude plugin marketplace add https://github.com/augustoFranke/instagram-publisher
 claude plugin install instagram-publisher@instagram-publisher
 ```
 
-Install from the public Codex marketplace (clone the repo, then point Codex at the committed marketplace manifest):
+Or install from the public Codex marketplace (clone the repo, then point Codex at the committed marketplace manifest):
 
 ```bash
 git clone https://github.com/augustoFranke/instagram-publisher.git ~/instagram-publisher

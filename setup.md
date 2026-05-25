@@ -57,6 +57,7 @@ Your Instagram account must be a **Professional account** (Business or Creator) 
 
 Create the `.env` file in the installed skill directory:
 
+- npx skills (global store): `~/.agents/skills/instagram-publisher/.env`
 - Claude Code: `~/.claude/skills/instagram-publisher/.env`
 - Codex: `~/.codex/skills/instagram-publisher/.env`
 
@@ -100,6 +101,12 @@ Tailscale Funnel lets the skill serve a local file over a public HTTPS URL so In
 Run a quick test with a public image URL (no local file needed):
 
 ```bash
+# If installed via npx skills
+python3 ~/.agents/skills/instagram-publisher/publish.py photo \
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/280px-PNG_transparency_demonstration_1.png" \
+  --caption "Test post from Claude 🤖"
+
+# If installed via Claude Code
 python3 ~/.claude/skills/instagram-publisher/publish.py photo \
   "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/280px-PNG_transparency_demonstration_1.png" \
   --caption "Test post from Claude 🤖"
