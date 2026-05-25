@@ -41,46 +41,13 @@ npx skills add augustoFranke/instagram-publisher
 
 ## Initial Setup
 
-### 1. Install the Skill
-The recommended way to install `instagram-publisher` is via `npx skills`:
+Install via `npx skills`:
 
 ```bash
 npx skills add augustoFranke/instagram-publisher
 ```
 
-This will download the skill to `~/.agents/skills/instagram-publisher/` and automatically register/link the `SKILL.md` file with your AI coding agents (such as Claude Code, Cursor, Windsurf, etc.).
-
-If you prefer a manual installation instead, clone the repo and copy the files to your agent's skill directory:
-
-```bash
-git clone https://github.com/augustoFranke/instagram-publisher.git
-mkdir -p ~/.claude/skills/instagram-publisher
-cp instagram-publisher/publish.py instagram-publisher/SKILL.md instagram-publisher/setup.md instagram-publisher/.env.example ~/.claude/skills/instagram-publisher/
-```
-
-### 2. Configure Credentials
-Create a `.env` file in the installed skill directory (e.g. `~/.agents/skills/instagram-publisher/` if installed via `npx skills`, or `~/.claude/skills/instagram-publisher/` for manual install):
-
-```bash
-# If installed via npx skills:
-cp ~/.agents/skills/instagram-publisher/.env.example ~/.agents/skills/instagram-publisher/.env
-
-# If manually installed to Claude Code:
-cp ~/.claude/skills/instagram-publisher/.env.example ~/.claude/skills/instagram-publisher/.env
-```
-
-Edit `.env` and provide:
-
-```text
-IG_USER_ID=<your numeric Instagram Business user ID>
-ACCESS_TOKEN=<your long-lived Instagram Graph API access token>
-```
-
-The Instagram account must be a Professional account connected to a Facebook Page. The Meta app/token must include Instagram publishing permissions, especially `instagram_basic` and `instagram_content_publish`.
-
-For local files, install and authenticate Tailscale, then enable Funnel for the machine. Public URL posts do not require Tailscale.
-
-The detailed onboarding flow lives in [setup.md](setup.md).
+This downloads the skill to `~/.agents/skills/instagram-publisher/` and registers it with your AI coding agent (Claude Code, Cursor, Windsurf, etc.). Once installed, ask your agent to post something to Instagram — it will walk you through the rest of the setup automatically.
 
 ## Usage
 
