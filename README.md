@@ -54,7 +54,16 @@ npx skills add augustoFranke/instagram-publisher
 
 ## Initial Setup
 
-If you prefer a manual install instead of using `npx skills`, clone the repo and copy the files to your agent's skill directory:
+### 1. Install the Skill
+The recommended way to install `instagram-publisher` is via `npx skills`:
+
+```bash
+npx skills add augustoFranke/instagram-publisher
+```
+
+This will download the skill to `~/.agents/skills/instagram-publisher/` and automatically register/link the `SKILL.md` file with your AI coding agents (such as Claude Code, Cursor, Windsurf, etc.).
+
+If you prefer a manual installation instead, clone the repo and copy the files to your agent's skill directory:
 
 ```bash
 git clone https://github.com/augustoFranke/instagram-publisher.git
@@ -62,11 +71,15 @@ mkdir -p ~/.claude/skills/instagram-publisher
 cp instagram-publisher/publish.py instagram-publisher/SKILL.md instagram-publisher/setup.md instagram-publisher/.env.example ~/.claude/skills/instagram-publisher/
 ```
 
-Create the environment file alongside the skill:
+### 2. Configure Credentials
+Create a `.env` file in the installed skill directory (e.g. `~/.agents/skills/instagram-publisher/` if installed via `npx skills`, or `~/.claude/skills/instagram-publisher/` for manual install):
 
 ```bash
-cp ~/.claude/skills/instagram-publisher/.env.example \
-  ~/.claude/skills/instagram-publisher/.env
+# If installed via npx skills:
+cp ~/.agents/skills/instagram-publisher/.env.example ~/.agents/skills/instagram-publisher/.env
+
+# If manually installed to Claude Code:
+cp ~/.claude/skills/instagram-publisher/.env.example ~/.claude/skills/instagram-publisher/.env
 ```
 
 Edit `.env` and provide:
@@ -80,44 +93,31 @@ The Instagram account must be a Professional account connected to a Facebook Pag
 
 For local files, install and authenticate Tailscale, then enable Funnel for the machine. Public URL posts do not require Tailscale.
 
-The detailed onboarding flow lives in `setup.md`.
+The detailed onboarding flow lives in [setup.md](setup.md).
 
 ## Usage
 
-Photo from URL:
+Once the skill is installed, **you do not need to run the Python script yourself**. Simply ask your AI coding agent (e.g. Claude Code) in natural language to publish or schedule content for you. 
 
-```bash
-python3 ~/.claude/skills/instagram-publisher/publish.py photo \
-  "https://example.com/photo.jpg" \
-  --caption "Hello from the Graph API"
-```
+Here are representative examples of how to interact with your agent:
 
-Photo from a local file:
+### Publish a Photo
+> **User:** "Post this photo to Instagram: https://example.com/photo.jpg with the caption 'Hello from the Graph API!'"
+> 
+> *The agent will automatically translate this request into the correct script arguments, run the publisher in the background, and return the published post's permalink.*
 
-```bash
-python3 ~/.claude/skills/instagram-publisher/publish.py photo \
-  --file /absolute/path/to/photo.jpg \
-  --caption "Local upload"
-```
+### Publish a Local File
+> **User:** "Post my local photo /absolute/path/to/photo.jpg to Instagram with the caption 'Local upload'"
 
-Reel with thumbnail:
+### Publish a Reel
+> **User:** "Post a reel using the video https://example.com/video.mp4, cover thumbnail https://example.com/thumb.jpg, and caption 'Behind the scenes'"
 
-```bash
-python3 ~/.claude/skills/instagram-publisher/publish.py reel \
-  "https://example.com/video.mp4" \
-  --cover-url "https://example.com/thumb.jpg" \
-  --caption "Behind the scenes"
-```
+### Publish a Carousel (Swipe Post)
+> **User:** "Create a carousel post with these three items: https://example.com/1.jpg, https://example.com/2.jpg, and https://example.com/clip.mp4. Use the caption 'Swipe through!'"
 
-Carousel:
+### Schedule a Post
+> **User:** "Schedule this photo https://example.com/photo.jpg for next Monday at 15:00 UTC with the caption 'Coming soon!'"
 
-```bash
-python3 ~/.claude/skills/instagram-publisher/publish.py carousel \
-  "https://example.com/1.jpg" \
-  "https://example.com/2.jpg" \
-  "https://example.com/clip.mp4" \
-  --caption "Swipe through"
-```
 
 ## Architecture
 
